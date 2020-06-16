@@ -8,3 +8,11 @@
     grid-area: details
 }
 
+.comments{
+    display: flex;
+    justify-content: space-between
+}
+
+#input-comment{
+    display: none
+}

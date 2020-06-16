@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Row, Col, Card, Icon, CardTitle } from 'react-materialize'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -12,6 +12,16 @@ function Book() {
   const books = useSelector(state => state.books)
   const book = books.filter( b => b.bookId == id ? b : null)
   const currentBook = book[0];
+  
+  let inputComment
+
+  function toggleInput(){
+    //inputComment.style.display = 'grid'
+  }
+  
+  useEffect(()=>{
+    inputComment = document.getElementById('input-comment')
+  })
   
   return (
     <div className='Book'>
@@ -28,9 +38,9 @@ function Book() {
             header={<CardTitle image="https://materializecss.com/images/sample-1.jpg">{currentBook.title}</CardTitle>}
             revealIcon={<Icon>more_vert</Icon>}
         >
-          Descrição:{currentBook.description}
+          DESCRIÇÃO:{currentBook.description}
           <p>
-            Categoria :                        
+            CATEGORIA :                        
             <Link to={`/categories/${currentBook.category}`}>
               {currentBook.category}
             </Link>
@@ -38,6 +48,24 @@ function Book() {
           <Link to={`/edit/${currentBook.bookId}`}>
             <Icon>edit</Icon>          
           </Link>
+          <p>
+            COMENTÁRIOS:
+         </p>
+            {currentBook.comments.map(comment => (
+          <div className='comments'>
+              <p>
+                {comment.text}
+              </p>
+              <p> 
+                 {comment.timestamp.toString()}
+              </p>
+          </div>
+            ))}
+          <a onClick={toggleInput()}>
+            <Icon>add_circle</Icon>          
+          </a>
+          <input id='input-comment' type='text' />
+          
         </Card>
       </Col>
       </div>

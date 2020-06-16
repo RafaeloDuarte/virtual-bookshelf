@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
 import Home from './containers/Home'
 import Book from './containers/Book'
@@ -16,7 +16,6 @@ function App() {
         <Route exact path='/create' component={Create}/>
         <Route exact path='/categories/:category' component={Categories}/>
         <Route exact path='/edit/:bookId' component={Edit}/>
-        <Redirect from='/edit/:bookId' to="/" />
       </Router>
     </div>
   );
