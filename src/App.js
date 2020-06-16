@@ -1,11 +1,20 @@
 import React from 'react';
-import { Button } from 'react-materialize';
+import {HashRouter as Router, Route} from 'react-router-dom'
+
+import Home from './containers/Home'
+import Book from './containers/Book'
+import Create from './containers/Create'
+import Categories from './containers/Categories'
 
 function App() {
   return (
     <div className="App">
-      <h1>Setup Inicial</h1>
-      <Button>button</Button>
+      <Router>
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/book' component={Book}/>
+        <Route exact path='/create' component={Create}/>
+        <Route exact path='/categories' component={Categories}/>
+      </Router>
     </div>
   );
 }
