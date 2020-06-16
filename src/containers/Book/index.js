@@ -31,7 +31,7 @@ function Book() {
           Descrição:{currentBook.description}
           <p>
             Categoria :                        
-            <Link>
+            <Link to={`/categories/${currentBook.category}`}>
               {currentBook.category}
             </Link>
           </p>

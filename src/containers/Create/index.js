@@ -55,22 +55,23 @@ function Create() {
     setCategory(e.target.value)
   }
 
-  const onSubmitNewBook = e =>{
+  function onSubmitNewBook(){
     const book = {
       bookId:bookList.length + 1,
       title,
       description,
       category
     }
-    setNewBook(book)
+    dispatch(addBook(book))
     addNewBook()
-  }
 
-  function addNewBook(){
-    dispatch(addBook(newBook))
     setTitle('')
     setDescription('')
     hiddenCreate()
+
+  }
+
+  function addNewBook(){
   }
   
   return (
