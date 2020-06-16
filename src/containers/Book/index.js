@@ -35,6 +35,9 @@ function Book() {
               {currentBook.category}
             </Link>
           </p>
+          <Link to={`/edit/${currentBook.bookId}`}>
+            <Icon>edit</Icon>          
+          </Link>
         </Card>
       </Col>
       </div>

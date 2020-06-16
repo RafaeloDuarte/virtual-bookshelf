@@ -35,7 +35,6 @@ function Create() {
 
   
   //Lógica de criação de novo livro;
-  const [newBook, setNewBook] = useState({})
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('')
@@ -60,18 +59,15 @@ function Create() {
       bookId:bookList.length + 1,
       title,
       description,
-      category
+      category,
+      timestamp: new Date()
     }
     dispatch(addBook(book))
-    addNewBook()
 
     setTitle('')
     setDescription('')
     hiddenCreate()
 
-  }
-
-  function addNewBook(){
   }
   
   return (

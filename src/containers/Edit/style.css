@@ -1,0 +1,12 @@
+.Edit{
+    display: grid;
+    grid-template-areas: '. title .' '. editForm .' 
+}
+
+.Edit h3{
+    grid-area: title
+}
+
+.Edit form{
+    grid-area: editForm
+}
