@@ -1,0 +1,20 @@
+.Create {
+    display: flex;
+}
+
+.Create a{
+    color: rgb(230, 128, 128);
+}
+
+#close_form{
+    display: none;
+}
+
+.form{
+    display: none
+}
+
+.form textarea{
+    border: none;
+    border-bottom: 1px solid gray;
+}

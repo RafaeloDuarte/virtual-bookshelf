@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './style.css';
 import { books as Books } from '../../components/Books';
 import { useSelector } from 'react-redux'
+import Create from '../Create';
 
 function Home() {
 
@@ -10,8 +11,13 @@ function Home() {
   
   return (
     <>
-      <h1>Home</h1>
-      <Books booklist={booklist}/>
+      <div className='Home'>
+        <div className='header'>
+          <h1>Home</h1>
+          <Create/>
+        </div>
+        <Books booklist={booklist}/>
+      </div>
     </>
   );
 }
