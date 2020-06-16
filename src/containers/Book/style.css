@@ -1,0 +1,10 @@
+.Book{
+    display: grid;
+    grid-template-areas: 'back details .''. details .';
+    grid-template-columns: .50fr 1fr .50fr;
+}
+
+.Book .bookDetails{
+    grid-area: details
+}
+

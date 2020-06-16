@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Icon, Button } from 'react-materialize'
 import { useSelector, useDispatch } from 'react-redux'
 
-
 import './style.css';
 
 function addBook(book){
@@ -39,6 +38,8 @@ function Create() {
   const [newBook, setNewBook] = useState({})
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+  const [category, setCategory] = useState('')
+
   const bookList = useSelector(state => state.books)
   const dispatch = useDispatch()
 
@@ -50,11 +51,16 @@ function Create() {
     setDescription(e.target.value)
   }
 
+  const categoryHandleChange = e =>{
+    setCategory(e.target.value)
+  }
+
   const onSubmitNewBook = e =>{
     const book = {
       bookId:bookList.length + 1,
       title,
       description,
+      category
     }
     setNewBook(book)
     addNewBook()
@@ -80,9 +86,24 @@ function Create() {
           <div>
             <h3>Título</h3>
           </div>
-          <input type='text' onChange={ e => titleHandleChange(e)}/>
+          <input 
+            type='text' 
+            value={title} 
+            onChange={ e => titleHandleChange(e)}
+          />
           <h3>Descrição</h3>
-          <textarea rows="10" cols="30" id="description" onChange={ e => descriptionHandleChange(e)}/>
+          <textarea 
+            rows="10" 
+            cols="30" 
+            id="description" 
+            value={description} 
+            onChange={ e => descriptionHandleChange(e)}
+          />
+          <input 
+            type='text' 
+            value={category} 
+            onChange={ e => categoryHandleChange(e)}
+          />
           <Button>Adicionar Novo Livro</Button>
         </form>
       </div>

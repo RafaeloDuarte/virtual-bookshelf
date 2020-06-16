@@ -4,6 +4,8 @@ const INITIAL_STATE = {
     books : [
         { bookId: 1, title:'Livro 1',description:'Esse é um livro', category: 'Romance'},
         { bookId: 2, title:'Livro 2',description:'Esse é um outro livro', category: 'Romance'},    
+        { bookId: 3, title:'Livro 1',description:'Esse é um livro', category: 'Romance'},
+        { bookId: 4, title:'Livro 1',description:'Esse é um livro', category: 'Romance'},
     ]
 }
 
