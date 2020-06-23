@@ -1,12 +1,7 @@
 import { createStore } from 'redux'
 
 const INITIAL_STATE = {
-    books : [
-        { bookId: 1, title:'Livro 1',description:'Esse é um livro', category: 'Romance',  comments:[{text:'Muito massa', timestamp:new Date()}, {text:'Muito massa', timestamp:new Date()}]},
-        { bookId: 2, title:'Livro 2',description:'Esse é um outro livro', category: 'Romance', comments:[{text:'Muito massa', timestamp:new Date()}, {text:'Muito massa', timestamp:new Date()}]},    
-        { bookId: 3, title:'Livro 1',description:'Esse é um livro', category: 'Romance', comments:[{text:'Muito massa', timestamp:new Date()}, {text:'Muito massa', timestamp:new Date()}]},
-        { bookId: 4, title:'Livro 1',description:'Esse é um livro', category: 'Romance', comments:[{text:'Muito massa', timestamp:new Date()}, {text:'Muito massa', timestamp:new Date()}]},
-    ]
+    books : localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : []
 }
 
 function books(state = INITIAL_STATE, action) {

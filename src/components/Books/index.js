@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export const books = ({ booklist }) => (
     <Row>
-       {booklist.map(book => 
+       { booklist.map(book => 
            (
                <Col
                     m={4}
@@ -28,6 +28,6 @@ export const books = ({ booklist }) => (
                     </Card>
                 </Col>
             )
-       )} 
+       )}
     </Row>
 )

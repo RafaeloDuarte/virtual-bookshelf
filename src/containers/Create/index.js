@@ -63,6 +63,7 @@ function Create() {
       timestamp: new Date()
     }
     dispatch(addBook(book))
+    localStorage.setItem('books', JSON.stringify([...bookList, book]))
 
     setTitle('')
     setDescription('')

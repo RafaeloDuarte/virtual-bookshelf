@@ -51,7 +51,7 @@ function Book() {
           <p>
             COMENTÁRIOS:
          </p>
-            {currentBook.comments.map(comment => (
+            {currentBook.comments && currentBook.comments.map(comment => (
           <div className='comments'>
               <p>
                 {comment.text}
