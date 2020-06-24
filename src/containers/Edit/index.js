@@ -2,12 +2,9 @@ import React, { useState } from 'react'
 import { Button } from 'react-materialize'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
+import { editBook } from '../../actions/books'
 
 import './style.css';
-
-function editBook(book){
-    return {type:'EDIT_BOOK', book}
-}
 
 function Edit() {
 
@@ -49,8 +46,6 @@ function Edit() {
     function categoryHandleChange(e){
         setCategory(e.target.value)
     }
-
-    console.log(currentBook)
 
     return (
         <div className='Edit'>
