@@ -29,14 +29,13 @@ function books(state = INITIAL_STATE, action) {
     case 'DELETE_BOOK':
       const deleteBook = action.book;
 
-      const deleteBooks = state.books.map(book => {
-        if (book.bookId === deleteBook.bookId) {
-          return '';
+      const deleteBooks = state.books.filter(book => {
+        if (book.bookId !== deleteBook.bookId) {
+          return book;
         }
-        return book;
       });
 
-      localStorage.setItem('books', JSON.stringify(deleteBooks))
+      localStorage.setItem('books', JSON.stringify(deleteBooks ? deleteBooks.sort() : []))
       return {
         ...state,
         books: deleteBooks

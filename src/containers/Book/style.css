@@ -20,6 +20,15 @@
     height: 50px;
 }
 
+#remove {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#remove img{
+    height: 40px;
+}
+
 .comments{
     display: flex;
     justify-content: space-between

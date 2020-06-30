@@ -14,7 +14,7 @@ function Home() {
     <>
       <div className='Home'>
         <div className='header'>
-          <h1>Home</h1>
+          <h1>Estante Virtual de Livros</h1>
           <Create/>
         </div>
         <Books booklist={booklist}/>

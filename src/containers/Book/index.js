@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { Col, Card, Icon, CardTitle } from 'react-materialize'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import Comment from '../Comment'
 import back from '../../assets/back.svg'
 import edit from '../../assets/edit.svg'
 import plus from '../../assets/plus_circle.svg'
-
+import remove from '../../assets/remove.svg'
+import { deleteBook } from '../../actions/books'
 
 import './style.css';
 
@@ -17,11 +18,16 @@ function Book() {
   const books = useSelector(state => state.books)
   const book = books.filter(b => b.bookId === id ? b : null)
   const currentBook = book[0];
+  const dispatch = useDispatch()
 
   let inputComment
 
   function toggleInput() {
     inputComment.style.display = 'grid'
+  }
+
+  function deleteCurrentBook() {
+    dispatch(deleteBook(currentBook))
   }
 
   useEffect(() => {
@@ -74,6 +80,11 @@ function Book() {
 
           </Card>
         </Col>
+      </div>
+      <div id='remove'>
+        <Link to='/' onClick={e => deleteCurrentBook()}>
+          <img src={remove} alt='remove' />
+        </Link>
       </div>
     </div>
   );
