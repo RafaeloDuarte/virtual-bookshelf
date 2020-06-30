@@ -11,7 +11,7 @@ In the project directory, you can run:
 Run the application in development mode. <br />
 Open [http: // localhost: 3000] (http: // localhost: 3000) to view it in the browser locally. Or press [http://virtualbookshelf.netlify.app] (http://virtualbookshelf.netlify.app) to view a production version.
 
-## CREATE BOOK
+## CREATE BOOK 
 To create a new book, click on the Add (+) button and fill in the Title, Description and Category entries.
 You can create comments for each book created, just click on "DETAILS" of them and click on the "small advantage" description below to add a new comment.
 
