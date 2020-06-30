@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from 'react-materialize'
 import { useSelector, useDispatch } from 'react-redux'
+
 import plus from '../../assets/plus_circle.svg'
 import right_arrow from '../../assets/right-arrow.svg'
+import { addBook } from '../../actions/books'
+import { getLabels } from '../../config/language'
 
 import './style.css';
 
-function addBook(book) {
-  return { type: 'ADD_BOOK', book }
-}
-
 function Create() {
+
+  const optionLang = JSON.parse(localStorage.getItem('language'))
+  const labels = getLabels(optionLang)
 
   //Lógica para exibição do formulário de criação
   let formView
@@ -89,14 +91,14 @@ function Create() {
         </a>
         <form className='form' id='form' onSubmit={e => onSubmitNewBook(e)}>
           <div>
-            <h3>Título</h3>
+            <h3>{labels.title}</h3>
           </div>
           <input
             type='text'
             value={title}
             onChange={e => titleHandleChange(e)}
           />
-          <h3>Descrição</h3>
+          <h3>{labels.description}</h3>
           <textarea
             rows="10"
             cols="30"
@@ -104,13 +106,13 @@ function Create() {
             value={description}
             onChange={e => descriptionHandleChange(e)}
           />
-          <h3>Categoria</h3>
+          <h3>{labels.category}</h3>
           <input
             type='text'
             value={category}
             onChange={e => categoryHandleChange(e)}
           />
-          <Button>Adicionar Novo Livro</Button>
+          <Button>{labels.addNewBook}</Button>
         </form>
       </div>
     </>

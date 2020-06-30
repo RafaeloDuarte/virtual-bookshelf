@@ -8,6 +8,7 @@ import edit from '../../assets/edit.svg'
 import plus from '../../assets/plus_circle.svg'
 import remove from '../../assets/remove.svg'
 import { deleteBook } from '../../actions/books'
+import { getLabels } from '../../config/language'
 
 import './style.css';
 
@@ -18,6 +19,9 @@ function Book() {
   const books = useSelector(state => state.books)
   const book = books.filter(b => b.bookId === id ? b : null)
   const currentBook = book[0];
+  const optionLang = JSON.parse(localStorage.getItem('language'))
+  const labels = getLabels(optionLang)
+
   const dispatch = useDispatch()
 
   let inputComment
@@ -46,9 +50,9 @@ function Book() {
             header={<CardTitle image="https://materializecss.com/images/sample-1.jpg">{currentBook.title}</CardTitle>}
             revealIcon={<Icon>more_vert</Icon>}
           >
-            DESCRIÇÃO:{currentBook.description}
+            {labels.description}:{currentBook.description}
             <p>
-              CATEGORIA :
+              {labels.category} :
               <Link to={`/categories/${currentBook.category}`}>
                 {currentBook.category}
               </Link>
@@ -57,7 +61,7 @@ function Book() {
               <img src={edit} id='edit_button'></img>
             </Link>
             <p>
-              COMENTÁRIOS:
+              {labels.comments}:
             </p>
             {currentBook.comments &&
 
