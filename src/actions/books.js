@@ -9,3 +9,7 @@ export function loadBooks(books){
 export function editBook(book){
     return {type:'EDIT_BOOK', book}
 }
+
+export function deleteBook(book){
+    return {type:'DELETE_BOOK', book}
+}

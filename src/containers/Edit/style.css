@@ -10,3 +10,12 @@
 .Edit form{
     grid-area: editForm
 }
+
+.button{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button #delete{
+    background-color: rgb(255, 93, 93);
+}

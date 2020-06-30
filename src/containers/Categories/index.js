@@ -8,7 +8,7 @@ function Categories() {
   const hash = window.location.hash
   const queryCategory = hash.substring(hash.lastIndexOf('/') + 1, hash.length)
   const books = useSelector(state => state.books)
-  const categoryBooks = books.filter( b => b.category == queryCategory ? b : null)
+  const categoryBooks = books.filter( b => b.category === queryCategory ? b : null)
 
   console.log(categoryBooks)
 

@@ -26,6 +26,21 @@ function books(state = INITIAL_STATE, action) {
         ...state,
         books: updatedBooks
       };
+    case 'DELETE_BOOK':
+      const deleteBook = action.book;
+
+      const deleteBooks = state.books.map(book => {
+        if (book.bookId === deleteBook.bookId) {
+          return '';
+        }
+        return book;
+      });
+
+      localStorage.setItem('books', JSON.stringify(deleteBooks))
+      return {
+        ...state,
+        books: deleteBooks
+      };
     default:
       return state;
   }

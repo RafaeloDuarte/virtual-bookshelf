@@ -8,6 +8,18 @@
     grid-area: details
 }
 
+#back{
+    height: 100px;
+}
+
+#add_button{
+    height: 40px;
+}
+
+#edit_button{
+    height: 50px;
+}
+
 .comments{
     display: flex;
     justify-content: space-between

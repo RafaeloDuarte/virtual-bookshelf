@@ -6,6 +6,10 @@
     color: rgb(230, 128, 128);
 }
 
+.Create a img{
+    height: 100px;
+}
+
 #close_form{
     display: none;
 }

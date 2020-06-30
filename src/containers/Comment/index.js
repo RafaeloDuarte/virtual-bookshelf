@@ -12,7 +12,8 @@ function Comment({ id }) {
     const updateComments = (comment) => {
         let currentBook
         books.map(b => {
-            if(id == b.bookId) currentBook = b
+            if (id === b.bookId) currentBook = b
+            return b
         })
         let currentComments
         if (currentBook.comments) {
@@ -25,16 +26,23 @@ function Comment({ id }) {
     }
 
     const addComment = () => {
+        const commentDate = new Date()
+        const formatedCommentDate = `
+            ${commentDate.getDate()}/
+            ${commentDate.getMonth()}/
+            ${commentDate.getFullYear()}`
         const newComment = {
             text: text,
-            timestamp: new Date()
+            timestamp: formatedCommentDate
         }
         updateComments(newComment)
-        //setText('')
+        setText('')
     }
 
     return (
-        <form onSubmit={() => addComment()}>
+        <form onSubmit={() => {
+            if (text !== '') addComment(); else alert('Comentário vazio')
+        }}>
             <input
                 type='text'
                 value={text}
