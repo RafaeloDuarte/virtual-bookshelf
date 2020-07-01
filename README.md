@@ -11,7 +11,11 @@ In the project directory, you can run:
 Run the application in development mode. <br />
 Open [http: // localhost: 3000] (http: // localhost: 3000) to view it in the browser locally. Or press [http://virtualbookshelf.netlify.app] (http://virtualbookshelf.netlify.app) to view a production version.
 
+<<<<<<< HEAD
 ## CREATE BOOK
+=======
+## CREATE BOOK 
+>>>>>>> b7fe29669d1ef5fcb34363235f0b47ec686dbdeb
 To create a new book, click on the Add (+) button and fill in the Title, Description and Category entries.
 You can create comments for each book created, just click on "DETAILS" of them and click on the "small advantage" description below to add a new comment.
 
@@ -23,4 +27,8 @@ If you click on the category link, you will see all books that belong to the sel
 You can change information about the selected book
 
 ## DELETE
+<<<<<<< HEAD
 Deleting a book is simple, you must be in the details of the book and click on 'button (X)'.
+=======
+Deleting a book is simple, you must be in the details of the book and click on 'button (X)'.
+>>>>>>> b7fe29669d1ef5fcb34363235f0b47ec686dbdeb

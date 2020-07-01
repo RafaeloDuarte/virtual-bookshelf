@@ -4,11 +4,15 @@ const initialBooks = localStorage.getItem('books')
 
 const INITIAL_STATE = {
   books: initialBooks ?
-    JSON.parse(initialBooks) : []
+    JSON.parse(initialBooks) : [],
+  language: true
 }
 
 function books(state = INITIAL_STATE, action) {
   switch (action.type) {
+    case 'TOGGLE_LANG':
+      localStorage.setItem('language', action.language ? true : false)
+      return { ...state, language: action.language};
     case 'ADD_BOOK':
       return { ...state, books: [...state.books, action.book] };
     case 'EDIT_BOOK':

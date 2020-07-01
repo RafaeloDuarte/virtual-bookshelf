@@ -4,8 +4,9 @@ import { Button } from 'react-materialize'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { editBook, deleteBook } from '../../actions/books'
-import back from '../../assets/back.svg'
+import { getLabels } from '../../config/language'
 
+import back from '../../assets/back.svg'
 import './style.css';
 
 function Edit() {
@@ -18,6 +19,9 @@ function Edit() {
     const books = useSelector(state => state.books)
     const book = books.filter(b => b.bookId === id ? b : null)
     const currentBook = book[0];
+    
+    const optionLang = JSON.parse(localStorage.getItem('language'))
+    const labels = getLabels(optionLang)
 
     const bookId = currentBook.bookId
     const [title, setTitle] = useState(currentBook.title)
@@ -49,9 +53,8 @@ function Edit() {
         setCategory(e.target.value)
     }
 
-    function deleteBook(){
-        const delBook = currentBook
-        dispatch(deleteBook(delBook))
+    function deleteCurrentBook() {
+        dispatch(deleteBook(currentBook))
     }
 
     return (
@@ -59,7 +62,7 @@ function Edit() {
             <Link to='/'>
                 <img src={back} alt='back' id='back' />
             </Link>
-            <h3>Editar livro</h3>
+            <h3>{labels.editBook}</h3>
             <form style={{ background: 'grey' }} id='form' onSubmit={e => onSubmitNewBook(e)}>
                 <input
                     type='text'
@@ -82,8 +85,12 @@ function Edit() {
                     onChange={e => categoryHandleChange(e)}
                 />
                 <div className='button'>
-                    <Button id='edit'>Editar Livro</Button>
-                    <Button id='delete' onClick={deleteBook()}>Deletar Livro</Button>
+                    <Button id='edit'>{labels.editBook}</Button>
+                    <a href='/'
+                        id='delete'
+                        onClick={() => deleteCurrentBook()}>
+                        {labels.deleteBook}
+                    </a>
                 </div>
             </form>
         </div>
